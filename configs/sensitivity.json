@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0",
+  "config_id": "muma-tom-sensitivity-v1",
+  "common": "common.json",
+  "protocol_id": "muma-tom-main-qsplit-v1",
+  "evaluation_split_id": "muma-tom-main-qsplit-v1/test",
+  "questions": 585,
+  "run_id": "sensitivity-run-01",
+  "run_seed": 35719823,
+  "core_reasoner": "gpt-3.5-turbo-0125",
+  "design": "one_factor_at_a_time",
+  "default": {"theta": 0.6, "T_succ": 3, "low_medium_boundary": 0.3, "medium_high_boundary": 0.6},
+  "variations": {
+    "theta": [0.55, 0.6, 0.65],
+    "T_succ": [2, 3, 4],
+    "low_medium_boundary": [0.25, 0.3, 0.35],
+    "medium_high_boundary": [0.55, 0.6, 0.65]
+  },
+  "settings": [
+    {"setting_id": "default", "changed_parameter": "NONE", "theta": 0.6, "T_succ": 3, "low_medium_boundary": 0.3, "medium_high_boundary": 0.6},
+    {"setting_id": "theta_0p55", "changed_parameter": "theta", "theta": 0.55, "T_succ": 3, "low_medium_boundary": 0.3, "medium_high_boundary": 0.6},
+    {"setting_id": "theta_0p65", "changed_parameter": "theta", "theta": 0.65, "T_succ": 3, "low_medium_boundary": 0.3, "medium_high_boundary": 0.6},
+    {"setting_id": "T_succ_2", "changed_parameter": "T_succ", "theta": 0.6, "T_succ": 2, "low_medium_boundary": 0.3, "medium_high_boundary": 0.6},
+    {"setting_id": "T_succ_4", "changed_parameter": "T_succ", "theta": 0.6, "T_succ": 4, "low_medium_boundary": 0.3, "medium_high_boundary": 0.6},
+    {"setting_id": "low_medium_0p25", "changed_parameter": "low_medium_boundary", "theta": 0.6, "T_succ": 3, "low_medium_boundary": 0.25, "medium_high_boundary": 0.6},
+    {"setting_id": "low_medium_0p35", "changed_parameter": "low_medium_boundary", "theta": 0.6, "T_succ": 3, "low_medium_boundary": 0.35, "medium_high_boundary": 0.6},
+    {"setting_id": "medium_high_0p55", "changed_parameter": "medium_high_boundary", "theta": 0.6, "T_succ": 3, "low_medium_boundary": 0.3, "medium_high_boundary": 0.55},
+    {"setting_id": "medium_high_0p65", "changed_parameter": "medium_high_boundary", "theta": 0.6, "T_succ": 3, "low_medium_boundary": 0.3, "medium_high_boundary": 0.65}
+  ],
+  "expected_setting_count": 9,
+  "unchanged_parameter_policy": "every field other than changed_parameter equals the default setting",
+  "successful_case_count_definition": "qualifying successful cases in the at-most-15 pre-truncation guidance candidate pool; counting occurs before the prompt insertion cap of three",
+  "fixed_uncertainty_trigger_cutoff": "D >= 0.60",
+  "trigger_comparison": "confidence > theta",
+  "accuracy_metric_id": "difficulty_balanced_accuracy",
+  "difficulty_reference_id": "muma-tom-gpt35-main-test-difficulty-v1",
+  "reported_metrics": ["difficulty_balanced_accuracy", "micro_accuracy", "average_reasoning_tokens"],
+  "required_result_groups": "one complete 585-question group for each sensitivity_setting_id",
+  "output_jsonl": "outputs/sensitivity/all_variations.jsonl",
+  "summary_json": "outputs/sensitivity/ofat_summary.json"
+}

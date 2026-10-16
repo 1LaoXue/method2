@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0",
+  "dataset": "MuMA-ToM",
+  "canonical_question_index": {
+    "file": "question_index.csv",
+    "rows": 900,
+    "composite_key": ["episode_id", "question_id"],
+    "sha256": "2e81b1d5865c5ae279790ec627c9b1b16d7f45441e542b71c7783e90ba1d021a"
+  },
+  "canonical_episode_index": {
+    "file": "episode_index.csv",
+    "rows": 225,
+    "key": "episode_id",
+    "sha256": "dd163a447008a669af995e6c5ef7f2bd6fcce0fecdbfa1014032dc7cac49ea0e"
+  },
+  "source_files": [
+    {
+      "upstream_relative_path": "Files/questions.json",
+      "role": "question_answer_and_label_source",
+      "bytes": 718589,
+      "sha256": "c38b858f7a7c9416da1ada21b393b601bb87132881020965d06e8037360cacb0"
+    },
+    {
+      "upstream_relative_path": "Files/texts.json",
+      "role": "text_context_source",
+      "bytes": 119935,
+      "sha256": "f986f65aab8d6abb9de91a93031f44307c7b82c57bddb07ef9ec420372587d1f"
+    },
+    {
+      "upstream_relative_path": "Files/actions_extracted.json",
+      "role": "available_action_file_not_asserted_as_reported_visual_parser_output",
+      "bytes": 179973,
+      "sha256": "57ba727df009ca44bbe72f7d7b5bba36f25aa4be3ac13c20117669ad8e2f5a00"
+    }
+  ],
+  "observed_counts": {
+    "episodes": 225,
+    "questions": 900,
+    "questions_per_episode": 4,
+    "questions_per_type": {"belief": 300, "social-goal": 300, "goal-belief": 300}
+  },
+  "label_mapping": {
+    "belief": "belief",
+    "social_goal": "social-goal",
+    "belief_of_goal": "goal-belief"
+  },
+  "reported_raw_video_count": 1030,
+  "raw_video_archive_verified_by_this_manifest": false
+}

@@ -1,0 +1,21 @@
+{
+  "schema_version": "1.0",
+  "config_id": "muma-tom-modality-decoupling-v1",
+  "common": "common.json",
+  "protocol_id": "muma-tom-main-qsplit-v1",
+  "evaluation_split_id": "muma-tom-main-qsplit-v1/test",
+  "questions": 585,
+  "run_id": "modality-decoupling-run-01",
+  "run_seed": 35719823,
+  "core_reasoners": ["gpt-5", "gpt-4o-2024-11-20", "DeepSeek-V3.1", "Qwen3-VL-32B-Instruct", "Meta-Llama-3.2-90B-Vision-Instruct"],
+  "conditions": [
+    {"condition_id": "text_only_single_pass", "text_description": true, "video_derived_cues": false, "reasoning": "single_pass"},
+    {"condition_id": "video_cues_only_single_pass", "text_description": false, "video_derived_cues": true, "reasoning": "single_pass"},
+    {"condition_id": "text_video_single_pass", "text_description": true, "video_derived_cues": true, "reasoning": "single_pass"},
+    {"condition_id": "text_video_full_framework", "text_description": true, "video_derived_cues": true, "reasoning": "memory_adaptive_debate"}
+  ],
+  "per_model_accuracy_metric_id": "micro_accuracy",
+  "aggregation": "unweighted_mean_over_five_core_reasoner_micro_accuracies",
+  "output_jsonl": "outputs/modality_decoupling/all_conditions.jsonl",
+  "summary_json": "outputs/modality_decoupling/table_summary.json"
+}

@@ -1,0 +1,34 @@
+{
+  "schema_version": "1.0",
+  "common": "common.json",
+  "supporting_configs": [
+    "environment.json",
+    "provider_endpoints.json",
+    "media_preprocessing.json",
+    "model_routing.json",
+    "metrics.json",
+    "initial_memory_build.json",
+    "episode_disjoint_initial_memory_build.json",
+    "difficulty_assignment_schema.json",
+    "confidence_observation_schema.json",
+    "result_record_schema.json",
+    "run_manifest_schema.json"
+  ],
+  "resolved_directory": "resolved",
+  "experiments": [
+    {"file": "main.json", "output": "main_evaluation"},
+    {"file": "episode_disjoint.json", "output": "episode_disjoint_evaluation"},
+    {"file": "backbone_comparison.json", "output": "model_comparison_figure"},
+    {"file": "modality_decoupling.json", "output": "modality_decoupling_table"},
+    {"file": "debate_statistics.json", "output": "debate_statistics_and_breakdown_tables"},
+    {"file": "ablation.json", "output": "ablation_figure"},
+    {"file": "budget_matched.json", "output": "budget_matched_table"},
+    {"file": "repeated_runs.json", "output": "five_run_table"},
+    {"file": "paired_statistics.json", "output": "paired_confidence_intervals_and_tests"},
+    {"file": "computational_cost.json", "output": "computational_cost_table"},
+    {"file": "sensitivity.json", "output": "local_sensitivity_analysis"},
+    {"file": "oracle_feedback.json", "output": "oracle_feedback_table"},
+    {"file": "human_reference.json", "output": "human_reference_statistics"},
+    {"file": "confidence_consistency.json", "output": "confidence_consistency_table_and_figure"}
+  ]
+}

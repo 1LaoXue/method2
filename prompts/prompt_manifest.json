@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0",
+  "template_syntax": "double_curly_brace_placeholders",
+  "answer_pattern": "Final Answer: [A-E]",
+  "templates": [
+    {"file": "person_action_utterance_parsing.txt", "stage": "multimodal_parsing", "origin": "adapted_from_manuscript_appendix"},
+    {"file": "initial_state_extraction.txt", "stage": "initial_state", "origin": "adapted_from_manuscript_appendix"},
+    {"file": "latent_hypothesis_generation.txt", "stage": "hypothesis_generation", "origin": "adapted_from_manuscript_appendix"},
+    {"file": "visual_action_extraction.txt", "stage": "visual_action_extraction", "origin": "adapted_from_manuscript_appendix"},
+    {"file": "visual_request_user_message.txt", "stage": "visual_request", "origin": "generated_for_code_release"},
+    {"file": "utterance_likelihood.txt", "stage": "utterance_likelihood", "origin": "adapted_from_manuscript_appendix"},
+    {"file": "action_likelihood.txt", "stage": "action_likelihood", "origin": "generated_from_manuscript_method"},
+    {"file": "bounded_score_fallback.txt", "stage": "likelihood_fallback", "origin": "generated_from_manuscript_method"},
+    {"file": "question_type_classification.txt", "stage": "question_type_classification", "origin": "generated_from_manuscript_method"},
+    {"file": "short_context_summary.txt", "stage": "memory_retrieval_summary", "origin": "generated_from_manuscript_method"},
+    {"file": "logical_agent.txt", "stage": "debate_logical_agent", "origin": "adapted_from_manuscript_appendix"},
+    {"file": "innovative_agent.txt", "stage": "debate_innovative_agent", "origin": "adapted_from_manuscript_appendix"},
+    {"file": "synthesizer_agent.txt", "stage": "debate_synthesizer", "origin": "adapted_from_manuscript_appendix"},
+    {"file": "debate_round_user_message.txt", "stage": "debate_dynamic_context", "origin": "generated_from_manuscript_method"},
+    {"file": "synthesizer_user_message.txt", "stage": "synthesizer_dynamic_context", "origin": "generated_from_manuscript_method"}
+    ,{"file": "reasoning_summary.txt", "stage": "memory_reasoning_summary", "origin": "generated_from_manuscript_method"}
+    ,{"file": "retrieval_pattern_summary.txt", "stage": "memory_pattern_summary", "origin": "generated_from_manuscript_method"}
+    ,{"file": "invalid_format_repair.txt", "stage": "format_repair", "origin": "generated_for_code_release"}
+  ]
+}

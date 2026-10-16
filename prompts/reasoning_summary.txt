@@ -1,0 +1,23 @@
+Create a compact memory-bank summary of the completed prediction. Do not include private chain-of-thought or unsupported speculation.
+
+Question type:
+{{question_type}}
+
+Question:
+{{question}}
+
+Observed evidence:
+{{background_info}}
+
+Baseline answer and score distribution:
+{{baseline_answer}}
+{{option_distribution}}
+
+Final answer:
+{{final_answer}}
+
+Correctness:
+{{correctness}}
+
+Return valid JSON with these fields:
+{"key_evidence": ["..."], "belief_state": "...", "social_or_physical_goal": "...", "correction_summary": "...", "final_answer": "A"}

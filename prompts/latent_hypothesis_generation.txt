@@ -1,0 +1,18 @@
+You are a theory-of-mind reasoner. For every answer option, construct one hypothesis H = <b(s), g_i, b(g_j)> containing:
+- the target agent's belief about the environment state;
+- the target agent's social goal or attitude toward the other agent's actions;
+- what the target agent believes the other agent's physical goal to be.
+
+Context:
+{{context}}
+
+Question:
+{{question}}
+
+Options:
+{{options}}
+
+Return exactly one semicolon-delimited hypothesis per option:
+A: <belief; social goal; belief about other agent's goal>
+B: <belief; social goal; belief about other agent's goal>
+Continue through the final supplied option.

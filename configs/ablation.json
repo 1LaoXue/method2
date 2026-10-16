@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0",
+  "config_id": "muma-tom-ablation-v1",
+  "common": "common.json",
+  "protocol_id": "muma-tom-main-qsplit-v1",
+  "evaluation_split_id": "muma-tom-main-qsplit-v1/test",
+  "questions": 585,
+  "run_id": "ablation-run-01",
+  "run_seed": 35719823,
+  "core_reasoners": ["gpt-5", "gpt-4o-2024-11-20", "DeepSeek-V3.1", "Qwen3-VL-32B-Instruct", "Meta-Llama-3.2-90B-Vision-Instruct"],
+  "conditions": [
+    {"condition_id": "no_debate", "memory": false, "debate": false},
+    {"condition_id": "debate_without_memory", "memory": false, "debate": true, "round_control": "adaptive"},
+    {"condition_id": "fixed_3_round_debate", "memory": true, "debate": true, "rounds": 3, "early_termination": false},
+    {"condition_id": "fixed_5_round_debate", "memory": true, "debate": true, "rounds": 5, "early_termination": false},
+    {"condition_id": "fixed_8_round_debate", "memory": true, "debate": true, "rounds": 8, "early_termination": false},
+    {"condition_id": "without_memory_partitioning", "memory": true, "memory_partitions": 1, "debate": true, "round_control": "adaptive"},
+    {"condition_id": "full_framework", "memory": true, "memory_partitions": 3, "debate": true, "round_control": "adaptive", "early_termination": true}
+  ],
+  "per_model_accuracy_metric_id": "micro_accuracy",
+  "aggregation": "unweighted_mean_over_five_core_reasoner_micro_accuracies",
+  "output_jsonl": "outputs/ablation/all_conditions.jsonl",
+  "summary_json": "outputs/ablation/accuracy_summary.json",
+  "figure_output": "outputs/ablation/accuracy_comparison_7conditions.pdf"
+}

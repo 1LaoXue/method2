@@ -1,0 +1,35 @@
+{
+  "schema_version": "1.0",
+  "config_id": "muma-tom-model-routing-v1",
+  "provider_lookup": "provider_endpoints.json",
+  "seed_resolution": {
+    "precedence": "route_seed_overrides_common_decoding_role_seed",
+    "logical_agent": "run_seed",
+    "innovative_agent": "run_seed_plus_1",
+    "synthesizer_agent": "run_seed_plus_2"
+  },
+  "routes": {
+    "visual_action_extraction": {"model": "gemini-2.5-pro-preview-05-06", "provider": "google_gemini_openai_compatible", "temperature": 0.0, "seed": 90472131},
+    "person_action_utterance_parsing": {"model": "gpt-4o-2024-11-20", "temperature": 0.0, "seed": 90472131},
+    "initial_state_extraction": {"model": "gpt-4o-2024-11-20", "temperature": 0.0, "seed": 90472131},
+    "latent_hypothesis_generation": {"model": "experiment_core_reasoner", "temperature": 0.0, "seed": 90472131},
+    "utterance_likelihood": {"model": "experiment_core_reasoner", "temperature": 0.0, "seed": 90472131, "request_token_logprobs": true},
+    "action_likelihood": {"model": "experiment_core_reasoner", "temperature": 0.0, "seed": 90472131, "request_token_logprobs": true},
+    "bounded_score_fallback": {"model": "experiment_core_reasoner", "temperature": 0.0, "seed": 90472131, "response_format": "json_object"},
+    "question_type_classification": {"model": "experiment_core_reasoner", "temperature": 0.0, "seed": 90472131},
+    "short_context_summary": {"model": "experiment_core_reasoner", "temperature": 0.0, "seed": 90472131},
+    "reasoning_summary": {"model": "experiment_core_reasoner", "temperature": 0.0, "seed": 90472131, "response_format": "json_object"},
+    "retrieval_pattern_summary": {"model": "experiment_core_reasoner", "temperature": 0.0, "seed": 90472131},
+    "invalid_format_repair": {"model": "same_model_as_failed_stage", "temperature": 0.0, "seed": 90472131},
+    "logical_agent": {"model": "experiment_core_reasoner", "provider": "lookup_by_resolved_model_id", "temperature": 0.3, "seed": "run_seed"},
+    "innovative_agent": {"model": "experiment_core_reasoner", "provider": "lookup_by_resolved_model_id", "temperature": 0.3, "seed": "run_seed_plus_1"},
+    "synthesizer_agent": {"model": "experiment_core_reasoner", "provider": "lookup_by_resolved_model_id", "temperature": 0.1, "seed": "run_seed_plus_2"}
+  },
+  "all_routes": {
+    "max_tokens": 1000,
+    "timeout_seconds": 120,
+    "max_retries": 3,
+    "retry_on": ["timeout", "rate_limit", "server_error", "invalid_format"],
+    "retry_backoff_seconds": [2, 4, 8]
+  }
+}

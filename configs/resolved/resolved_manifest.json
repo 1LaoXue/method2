@@ -1,0 +1,90 @@
+{
+  "schema_version": "1.0",
+  "profile_type": "frozen_reproducibility_protocol",
+  "resolved_configs": [
+    {
+      "file": "resolved/main.json",
+      "source": "main.json",
+      "bytes": 51123,
+      "sha256": "aa3560edecb40484245203c19c6d71ed7132145934ee6f8daf6682ea9dbad238"
+    },
+    {
+      "file": "resolved/episode_disjoint.json",
+      "source": "episode_disjoint.json",
+      "bytes": 52415,
+      "sha256": "e564d45cb2d8bd828d80a6a799a5ab4ded63cd0c2513ae2a246adf3d192544d7"
+    },
+    {
+      "file": "resolved/backbone_comparison.json",
+      "source": "backbone_comparison.json",
+      "bytes": 51042,
+      "sha256": "1cd31127be4a398e85527d84b4b79d99eb52377cf85999f6a6d3149e0c81f7b9"
+    },
+    {
+      "file": "resolved/modality_decoupling.json",
+      "source": "modality_decoupling.json",
+      "bytes": 51427,
+      "sha256": "ed6657c73430ce2dff82c8919680bb45bbaf6609932911e6d0bf26a3094497b3"
+    },
+    {
+      "file": "resolved/debate_statistics.json",
+      "source": "debate_statistics.json",
+      "bytes": 51505,
+      "sha256": "4c4f199090d815b536eba3157efd9eff2e006ab6a9528328b29b791c315d699e"
+    },
+    {
+      "file": "resolved/ablation.json",
+      "source": "ablation.json",
+      "bytes": 51917,
+      "sha256": "d057308d25d8dcb7476ef6eedcdb7708f861192af94bad24b6a5998f067ae2ee"
+    },
+    {
+      "file": "resolved/budget_matched.json",
+      "source": "budget_matched.json",
+      "bytes": 51168,
+      "sha256": "513000a136e99dd059e24d6dd85b37dd8a4a4e6944dc8339e47fee8863d3b75e"
+    },
+    {
+      "file": "resolved/repeated_runs.json",
+      "source": "repeated_runs.json",
+      "bytes": 51689,
+      "sha256": "b3f5aa52f368566f91f26271137a1a861bf531d72a0133de6875dfa056d295ce"
+    },
+    {
+      "file": "resolved/paired_statistics.json",
+      "source": "paired_statistics.json",
+      "bytes": 50627,
+      "sha256": "5255bb50eed341d493743484b82a867ea7e1c43f02c13215ba81401fc646e12f"
+    },
+    {
+      "file": "resolved/computational_cost.json",
+      "source": "computational_cost.json",
+      "bytes": 51998,
+      "sha256": "edb08682bca6bd182dfc95ce7487b60af790f5ae26f8cb89ca4324ac00ea1b42"
+    },
+    {
+      "file": "resolved/sensitivity.json",
+      "source": "sensitivity.json",
+      "bytes": 53695,
+      "sha256": "dcd1bebf431a023c711b156ad46ccd68aa66fbd664ac57af4830dc087d75b509"
+    },
+    {
+      "file": "resolved/oracle_feedback.json",
+      "source": "oracle_feedback.json",
+      "bytes": 51311,
+      "sha256": "b8ef8fe040049952859680e7590cb5b78f0cce4e0c7a232387b5d883b18fd78a"
+    },
+    {
+      "file": "resolved/human_reference.json",
+      "source": "human_reference.json",
+      "bytes": 53564,
+      "sha256": "6d5c1bab28ad7f8e94d387c50be2bfa6047715cbad618b3516d918ce3f9c5d6e"
+    },
+    {
+      "file": "resolved/confidence_consistency.json",
+      "source": "confidence_consistency.json",
+      "bytes": 69173,
+      "sha256": "7ee841b170e4840a2f35b9adaf7dbcb5cf18720db57412f31c18fbb850328067"
+    }
+  ]
+}

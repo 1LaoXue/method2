@@ -1,0 +1,21 @@
+{
+  "schema_version": "1.0",
+  "config_id": "muma-tom-main-evaluation-v1",
+  "common": "common.json",
+  "protocol_id": "muma-tom-main-qsplit-v1",
+  "assignments": "../splits/main_question_split_v1.csv",
+  "memory_split_id": "muma-tom-main-qsplit-v1/memory",
+  "validation_split_id": "muma-tom-main-qsplit-v1/validation",
+  "evaluation_split_id": "muma-tom-main-qsplit-v1/test",
+  "expected_counts": {"memory": 225, "validation": 90, "test": 585},
+  "expected_per_type": {"memory": 75, "validation": 30, "test": 195},
+  "run_id": "main-gpt4o-run-01",
+  "run_seed": 35719823,
+  "core_reasoner": "gpt-4o-2024-11-20",
+  "visual_parser": "gemini-2.5-pro-preview-05-06",
+  "evaluation_mode": "frozen_memory_offline",
+  "accuracy_metric_id": "micro_accuracy",
+  "memory_updates_during_test": false,
+  "output_jsonl": "outputs/main/gpt4o_full_framework_run01.jsonl",
+  "summary_json": "outputs/main/gpt4o_full_framework_run01_summary.json"
+}

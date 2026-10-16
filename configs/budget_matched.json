@@ -1,0 +1,22 @@
+{
+  "schema_version": "1.0",
+  "config_id": "muma-tom-budget-matched-v1",
+  "common": "common.json",
+  "protocol_id": "muma-tom-main-qsplit-v1",
+  "evaluation_split_id": "muma-tom-main-qsplit-v1/test",
+  "questions": 585,
+  "run_id": "budget-matched-run-01",
+  "run_seed": 35719823,
+  "core_reasoner": "gpt-3.5-turbo-0125",
+  "visual_parser": "gemini-2.5-pro-preview-05-06",
+  "exclude_visual_parsing_tokens": true,
+  "reference_method": "full_framework",
+  "reference_budget_ratio": 1.0,
+  "methods": ["single_pass_reasoning", "self_consistency", "majority_voting", "RAG_without_debate", "memory_only_without_debate", "debate_without_memory", "full_framework"],
+  "multi_call_target_token_range": [16280, 17680],
+  "accuracy_metric_id": "difficulty_balanced_accuracy",
+  "difficulty_reference_id": "muma-tom-gpt35-main-test-difficulty-v1",
+  "reported_metrics": ["difficulty_balanced_accuracy", "micro_accuracy", "average_reasoning_tokens", "budget_ratio", "average_api_calls"],
+  "output_jsonl": "outputs/budget_matched/all_methods.jsonl",
+  "summary_json": "outputs/budget_matched/table_summary.json"
+}

@@ -1,0 +1,26 @@
+Multimodal background:
+{{background_info}}
+
+Question type:
+{{question_type}}
+
+Question:
+{{question}}
+
+Options:
+{{options}}
+
+Baseline option distribution:
+{{option_distribution}}
+
+Baseline answer:
+{{baseline_answer}}
+
+Retrieved high-validity cases:
+{{retrieved_cases}}
+
+Debate history through the previous round:
+{{debate_history}}
+
+Current round:
+{{round_index}} of {{maximum_rounds}}

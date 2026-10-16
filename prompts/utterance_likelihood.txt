@@ -1,0 +1,27 @@
+You are a mental-state simulator. Judge whether the target agent would generate the observed utterance under the supplied hypothesis and preceding context.
+
+Decision rules:
+1. Check whether the utterance is consistent with the target agent's belief about the physical state.
+2. Under a helping or cooperative social goal, accurate belief-consistent information is more likely than misleading information.
+3. Under a hindering or deceptive social goal, strategically misleading information can be likely even when it conflicts with the target agent's private belief.
+4. Use the preceding utterance only as conversational context; do not replace the target agent's hypothesized belief with the counterpart's statement.
+5. Judge the supplied utterance, not an alternative utterance.
+
+Hypothesis H:
+{{hypothesis}}
+
+Initial state:
+{{initial_state}}
+
+Previous interaction history:
+{{history}}
+
+Counterpart's preceding utterance:
+{{counterpart_utterance}}
+
+Target utterance:
+{{target_utterance}}
+
+Return exactly one option:
+A) Likely
+B) Unlikely

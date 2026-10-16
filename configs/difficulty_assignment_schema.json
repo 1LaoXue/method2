@@ -1,0 +1,28 @@
+{
+  "schema_version": "1.0",
+  "config_id": "muma-tom-difficulty-assignment-schema-v1",
+  "format": "CSV UTF-8 with header",
+  "unique_key": ["reference_assignment_id", "episode_id", "question_id"],
+  "required_fields": {
+    "reference_assignment_id": "string matching configs/metrics.json",
+    "protocol_id": "muma-tom-main-qsplit-v1",
+    "split_id": "muma-tom-main-qsplit-v1/test",
+    "episode_id": "dataset episode identifier",
+    "question_id": "question identifier within episode",
+    "difficulty_score": "float in [0,1] computed from the frozen reference state",
+    "difficulty_stratum": "low|medium|high"
+  },
+  "threshold_consistency": {
+    "low": "difficulty_score < 0.30",
+    "medium": "0.30 <= difficulty_score < 0.60",
+    "high": "difficulty_score >= 0.60"
+  },
+  "coverage": {
+    "expected_questions": 585,
+    "expected_question_keys_from": "../splits/main_question_split_v1.csv where split == test",
+    "missing_keys_allowed": false,
+    "extra_keys_allowed": false,
+    "duplicate_keys_allowed": false,
+    "empty_strata_allowed": false
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "schema_version": "1.0",
+  "config_id": "muma-tom-run-manifest-schema-v1",
+  "required_fields": {
+    "run_id": "string",
+    "started_at_utc": "ISO-8601 string",
+    "finished_at_utc": "ISO-8601 string",
+    "git_commit": "40-character SHA-1",
+    "config_files": "array[{path,sha256}]",
+    "split_files": "array[{path,sha256}]",
+    "prompt_files": "array[{path,sha256}]",
+    "metric_config_file": "{path,sha256}",
+    "accuracy_metric_id": "string",
+    "result_record_key": "array[string] equal to result_record_schema.json/unique_record_key",
+    "condition_ids": "array[string] including NOT_APPLICABLE when unused",
+    "pass_indices": "array[positive_integer]|[NOT_APPLICABLE]",
+    "sensitivity_setting_ids": "array[string] including NOT_APPLICABLE when unused",
+    "metric_reference_assignment": "{id,path,sha256}|NOT_APPLICABLE",
+    "model_routes": "object stage->{requested_model,resolved_model,provider}",
+    "run_seed": "integer",
+    "seed_support": "object stage->boolean",
+    "environment": "environment.json contents and SHA-256",
+    "question_count": "integer",
+    "completed_question_count": "integer",
+    "failed_question_count": "integer",
+    "output_jsonl": "path",
+    "output_sha256": "string",
+    "metric_summary_json": "path",
+    "metric_summary_sha256": "string"
+  },
+  "failure_policy": {
+    "continue_after_question_failure": true,
+    "write_failure_record": true,
+    "exclude_failed_question_from_denominator": false,
+    "failed_question_final_answer": "INVALID"
+  }
+}

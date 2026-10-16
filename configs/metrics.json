@@ -1,0 +1,86 @@
+{
+  "schema_version": "1.0",
+  "config_id": "muma-tom-evaluation-metrics-v1",
+  "difficulty_assignment_schema": "difficulty_assignment_schema.json",
+  "aggregation_entrypoint": "../scripts/compute_metrics.py",
+  "metrics": {
+    "micro_accuracy": {
+      "display_name": "Micro-Acc.",
+      "formula": "sum_i I(prediction_i == ground_truth_i) / N",
+      "numerator": "integer number of correct predictions",
+      "denominator": "all assigned questions, including INVALID and failed predictions",
+      "aggregation_unit": "question"
+    },
+    "difficulty_balanced_accuracy": {
+      "display_name": "DB-Acc.",
+      "formula": "(1/3) * sum_{h in {low,medium,high}} (correct_h / n_h)",
+      "strata": ["low", "medium", "high"],
+      "stratum_weights": {"low": "1/3", "medium": "1/3", "high": "1/3"},
+      "difficulty_thresholds": {
+        "low": "D < 0.30",
+        "medium": "0.30 <= D < 0.60",
+        "high": "D >= 0.60"
+      },
+      "empty_stratum_policy": "invalid_run_do_not_report",
+      "assignment_policy": "compute_once_from_the_declared_frozen_reference_state_then_reuse_unchanged_within_the_comparison",
+      "not_equivalent_to": "support-weighted_stratum_accuracy_or_integer_correct_count_divided_by_585",
+      "audit_requirements": [
+        "reference_assignment_id",
+        "reference_assignment_sha256",
+        "n_low",
+        "n_medium",
+        "n_high",
+        "correct_low",
+        "correct_medium",
+        "correct_high",
+        "unrounded_difficulty_balanced_accuracy",
+        "integer_micro_correct",
+        "integer_micro_total",
+        "unrounded_micro_accuracy"
+      ]
+    }
+  },
+  "difficulty_references": {
+    "muma-tom-gpt35-main-test-difficulty-v1": {
+      "protocol_id": "muma-tom-main-qsplit-v1",
+      "split_id": "muma-tom-main-qsplit-v1/test",
+      "questions": 585,
+      "core_reasoner": "gpt-3.5-turbo-0125",
+      "memory_state": "initial_memory_snapshot_frozen_before_test",
+      "score_configuration": "common.json/difficulty",
+      "processing_order": ["episode_id_ascending", "question_id_ascending"],
+      "used_by": ["budget_matched.json", "computational_cost.json", "sensitivity.json"],
+      "assignment_output": "outputs/metrics/muma-tom-gpt35-main-test-difficulty-v1.csv"
+    },
+    "muma-tom-gpt4o-oracle-prepass-difficulty-v1": {
+      "protocol_id": "muma-tom-main-qsplit-v1",
+      "split_id": "muma-tom-main-qsplit-v1/test",
+      "questions": 585,
+      "core_reasoner": "gpt-4o-2024-11-20",
+      "memory_state": "initial_memory_snapshot_frozen_before_oracle_pass_1",
+      "score_configuration": "common.json/difficulty",
+      "processing_order": ["episode_id_ascending", "question_id_ascending"],
+      "reuse": "same_assignment_for_both_conditions_and_all_five_passes",
+      "used_by": ["oracle_feedback.json"],
+      "assignment_output": "outputs/metrics/muma-tom-gpt4o-oracle-prepass-difficulty-v1.csv"
+    }
+  },
+  "reporting": {
+    "store_unrounded_values": true,
+    "rounding_mode": "decimal_ROUND_HALF_UP",
+    "table_4_decimals": 2,
+    "table_6_decimals": 2,
+    "table_7_decimals": 1,
+    "table_rendering": {
+      "table_4_budget_matched": {"metric_id": "difficulty_balanced_accuracy", "percent_decimals": 2},
+      "table_6_computational_cost": {"metric_id": "difficulty_balanced_accuracy", "percent_decimals": 2},
+      "table_7_oracle_feedback": {"metric_id": "difficulty_balanced_accuracy", "percent_decimals": 1}
+    },
+    "report_micro_accuracy_alongside_db_accuracy_in_machine_readable_summary": true
+  },
+  "completed_evidence_requirements": {
+    "difficulty_assignment": "exactly 585 unique main-test question keys with nonempty low, medium, and high strata",
+    "result_group": "exactly one record for every assignment key within each method/model/run/condition/pass/sensitivity group",
+    "audit_output": "integer counts for every stratum, exact count fractions, unrounded decimal values, rendered table values, and SHA-256 hashes of both inputs"
+  }
+}

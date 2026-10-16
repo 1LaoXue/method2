@@ -1,0 +1,22 @@
+{
+  "schema_version": "1.0",
+  "config_id": "muma-tom-debate-statistics-v1",
+  "common": "common.json",
+  "protocol_id": "muma-tom-main-qsplit-v1",
+  "evaluation_split_id": "muma-tom-main-qsplit-v1/test",
+  "questions": 585,
+  "run_id": "debate-statistics-run-01",
+  "run_seed": 35719823,
+  "core_reasoners": ["gpt-5", "gpt-4o-2024-11-20", "DeepSeek-V3.1", "Qwen3-VL-32B-Instruct", "Meta-Llama-3.2-90B-Vision-Instruct"],
+  "metrics": {
+    "R_debate": {"numerator": "triggered_questions", "denominator": "all_test_questions"},
+    "R_succ": {"numerator": "triggered_and_final_correct", "denominator": "triggered_questions"},
+    "R_correct": {"numerator": "triggered_baseline_wrong_final_correct", "denominator": "triggered_questions"},
+    "R_harm": {"numerator": "triggered_baseline_correct_final_wrong", "denominator": "triggered_questions"},
+    "early_termination_rate": {"numerator": "triggered_and_terminated_before_max_rounds", "denominator": "triggered_questions"}
+  },
+  "confidence_intervals": {"model": "gpt-4o-2024-11-20", "method": "Wilson", "confidence_level": 0.95},
+  "breakdowns": ["difficulty", "question_type", "core_reasoner"],
+  "input_jsonl": "outputs/backbone_comparison/all_models_all_methods.jsonl",
+  "summary_json": "outputs/debate_statistics/metrics_and_wilson_intervals.json"
+}

@@ -1,0 +1,39 @@
+{
+  "schema_version": "1.0",
+  "config_id": "muma-tom-media-preprocessing-v1",
+  "profile_type": "frozen_reproducibility_protocol",
+  "input_preference": ["provider_native_video", "ordered_uniform_frames"],
+  "native_video": {
+    "enabled_when_supported": true,
+    "include_audio": true,
+    "clip_start_seconds": 0.0,
+    "clip_end": "full_video"
+  },
+  "frame_fallback": {
+    "decoder": "OpenCV VideoCapture",
+    "sampling": "uniform_over_full_duration",
+    "frames_per_second": 1.0,
+    "minimum_frames": 8,
+    "maximum_frames": 32,
+    "always_include_first_frame": true,
+    "always_include_last_frame": true,
+    "duplicate_timestamp_policy": "keep_first",
+    "ordering": "timestamp_ascending",
+    "color_space": "RGB",
+    "resize": {"longest_side_pixels": 768, "allow_upscale": false},
+    "encoding": {"format": "JPEG", "quality": 90}
+  },
+  "text_context": {
+    "include_dataset_description": true,
+    "include_dialogue_transcript": true,
+    "include_target_person_name": true,
+    "include_answer_options_during_visual_extraction": false
+  },
+  "visual_parser": "gemini-2.5-pro-preview-05-06",
+  "system_prompt": "../prompts/visual_action_extraction.txt",
+  "user_message": "../prompts/visual_request_user_message.txt",
+  "temperature": 0.0,
+  "seed": 90472131,
+  "max_tokens": 1000,
+  "cache_key": "sha256(video_bytes || rendered_prompt || model_id || config_id)"
+}

@@ -1,0 +1,6 @@
+Summarize the supplied multimodal interaction context for similarity retrieval. Preserve the agents, object locations, actions, utterances, and belief-relevant state changes. Do not answer the multiple-choice question. Use at most 100 words.
+
+Context:
+{{context}}
+
+Return only the summary.

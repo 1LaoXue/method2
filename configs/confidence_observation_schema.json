@@ -1,0 +1,21 @@
+{
+  "schema_version": "1.0",
+  "config_id": "controlled-confidence-observation-schema-v1",
+  "format": "CSV UTF-8 with header",
+  "unique_key": ["scenario_id", "observation_sequence_id", "timepoint_index", "model_id"],
+  "required_fields": {
+    "protocol_id": "controlled-confidence-consistency-v1",
+    "scenario_id": "must resolve through confidence_consistency_scenarios_v1.csv",
+    "observation_sequence_id": "must equal the mapped sequence ID",
+    "task": "online_goal_inference|desire_inference|belief_inference",
+    "timepoint_index": "positive integer unique within scenario/model sequence",
+    "model_id": "full_framework|gpt-4o-2024-11-20|o4-mini|gemini-2.5-flash",
+    "model_score": "finite float in [0,1]",
+    "human_rating": "finite float on the original task-specific scale",
+    "human_rating_scale_min": "finite float smaller than human_rating_scale_max",
+    "human_rating_scale_max": "finite float larger than human_rating_scale_min"
+  },
+  "mapping_requirement": "Every scenario row must have mapping_status RESOLVED and non-placeholder source publication, source task, source scenario ID, stimulus location, source type ID, and observation sequence ID before aggregation.",
+  "correlation_unit": "all sequential observations pooled within task and model",
+  "bootstrap_unit": "scenario cluster with every timepoint retained when a scenario is resampled"
+}

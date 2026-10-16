@@ -1,0 +1,19 @@
+Classify the question into exactly one MuMA-ToM reasoning type.
+
+Definitions:
+- belief: infer an agent's belief about the physical state.
+- social-goal: infer whether an agent intends to help, hinder, cooperate, or mislead.
+- goal-belief: infer one agent's belief about another agent's physical goal.
+
+Question:
+{{question}}
+
+Options:
+{{options}}
+
+Return exactly one label:
+belief
+social-goal
+goal-belief
+
+Tie rule: choose the type corresponding to the deepest mental-state relation explicitly requested by the question; `goal-belief` takes priority over `social-goal`, which takes priority over `belief`.

@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0",
+  "config_id": "muma-tom-environment-v1",
+  "profile_type": "frozen_reproducibility_protocol",
+  "operating_system": "Ubuntu 22.04.5 LTS",
+  "architecture": "x86_64",
+  "python": "3.11.9",
+  "timezone": "UTC",
+  "locale": "C.UTF-8",
+  "packages": {
+    "numpy": "1.26.4",
+    "pandas": "2.2.2",
+    "scipy": "1.13.1",
+    "openai": "1.51.2",
+    "google-generativeai": "0.8.3",
+    "httpx": "0.27.2",
+    "pydantic": "2.9.2",
+    "tenacity": "9.0.0",
+    "tiktoken": "0.8.0",
+    "opencv-python-headless": "4.10.0.84"
+  },
+  "api_key_environment_variables": {
+    "openai": "OPENAI_API_KEY",
+    "gemini": "GEMINI_API_KEY",
+    "deepseek": "DEEPSEEK_API_KEY",
+    "dashscope": "DASHSCOPE_API_KEY",
+    "together": "TOGETHER_API_KEY"
+  },
+  "network": {
+    "connect_timeout_seconds": 30,
+    "read_timeout_seconds": 120,
+    "max_connections": 1
+  },
+  "numeric": {
+    "float_storage": "IEEE-754 float64",
+    "json_float_precision": 10,
+    "csv_encoding": "UTF-8",
+    "line_ending": "LF"
+  }
+}

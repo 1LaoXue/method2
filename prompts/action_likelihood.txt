@@ -1,0 +1,24 @@
+You are a mental-state simulator. Judge whether the target agent would perform the observed action under the supplied hypothesis, initial state, and prior interaction history.
+
+Decision rules:
+1. Check physical feasibility from the initial state and prior actions.
+2. Check whether the action advances the target agent's hypothesized physical or social goal.
+3. Check consistency with what the target agent believes, rather than with privileged ground truth.
+4. Account for helping, hindering, and deceptive intentions when they are present in the hypothesis.
+5. Judge the supplied action, not a more optimal alternative.
+
+Hypothesis H:
+{{hypothesis}}
+
+Initial state:
+{{initial_state}}
+
+Previous interaction history:
+{{history}}
+
+Target action:
+{{target_action}}
+
+Return exactly one option:
+A) Likely
+B) Unlikely

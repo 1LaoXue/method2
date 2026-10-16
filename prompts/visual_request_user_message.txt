@@ -1,0 +1,10 @@
+Analyze the attached video or ordered frames for the following request.
+
+Target person:
+{{target_person}}
+
+Additional scene information:
+{{scene_description}}
+
+Media attachment identifier:
+{{media_attachment_id}}

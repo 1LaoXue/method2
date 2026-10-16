@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0",
+  "config_id": "muma-tom-episode-disjoint-initial-memory-build-v1",
+  "common": "common.json",
+  "source_split_id": "muma-tom-episode-disjoint-v1/memory",
+  "source_assignments": "../splits/episode_disjoint_questions_v1.csv",
+  "expected_questions": 224,
+  "expected_episodes": 56,
+  "require_zero_episode_overlap_with": [
+    "muma-tom-episode-disjoint-v1/validation",
+    "muma-tom-episode-disjoint-v1/test"
+  ],
+  "processing_order": ["question_type_order", "episode_id_ascending", "question_id_ascending"],
+  "question_type_order": ["belief", "social-goal", "goal-belief"],
+  "entry_creation": {
+    "run_baseline_and_debate_pipeline": true,
+    "store_ground_truth_after_prediction": true,
+    "store_reasoning_summary_not_raw_chain_of_thought": true,
+    "correct_entry_validity": 0.9,
+    "incorrect_entry_validity": 0.3
+  },
+  "validity_maintenance": {
+    "evaluation_unit": "completed_run",
+    "retrieved_and_selected_as_guidance_and_final_correct": "useful",
+    "retrieved_and_selected_as_guidance_and_final_incorrect": "not_useful",
+    "retrieved_but_not_selected_as_guidance": "no_change",
+    "useful_update": "min(1.0,e+0.1)",
+    "not_useful_update": "max(0.1,e-0.05)"
+  },
+  "snapshot": {
+    "output": "outputs/memory/episode_disjoint_initial_memory.jsonl",
+    "metadata_output": "outputs/memory/episode_disjoint_initial_memory_manifest.json",
+    "sort_order": ["partition", "episode_id", "question_id"],
+    "checksum": "SHA-256"
+  }
+}

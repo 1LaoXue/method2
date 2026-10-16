@@ -1,0 +1,149 @@
+{
+  "schema_version": "1.0",
+  "dataset": "MuMA-ToM",
+  "source_index_file": "question_index.csv",
+  "source_index_sha256": "2e81b1d5865c5ae279790ec627c9b1b16d7f45441e542b71c7783e90ba1d021a",
+  "provenance": {
+    "profile_type": "frozen_reproducibility_protocol",
+    "assignment_origin": "deterministic_release_assignment_from_canonical_dataset_index"
+  },
+  "randomization": {
+    "implementation": "Python random.Random(seed).shuffle",
+    "initial_order": "numeric episode_id then numeric question_id",
+    "question_type_order": [
+      "belief",
+      "social-goal",
+      "goal-belief"
+    ],
+    "seeds": {
+      "main_question_split": 73194217,
+      "episode_disjoint_split": 18465031,
+      "repeated_run_subset": 59280463,
+      "human_reference_subset": 31847029
+    }
+  },
+  "protocols": {
+    "muma-tom-main-qsplit-v1": {
+      "allocation_unit": "question",
+      "episode_disjoint": false,
+      "assignments_file": "main_question_split_v1.csv",
+      "counts": {
+        "memory": {
+          "questions": 225,
+          "per_type": {
+            "belief": 75,
+            "social-goal": 75,
+            "goal-belief": 75
+          }
+        },
+        "validation": {
+          "questions": 90,
+          "per_type": {
+            "belief": 30,
+            "social-goal": 30,
+            "goal-belief": 30
+          }
+        },
+        "test": {
+          "questions": 585,
+          "per_type": {
+            "belief": 195,
+            "social-goal": 195,
+            "goal-belief": 195
+          }
+        }
+      }
+    },
+    "muma-tom-episode-disjoint-v1": {
+      "allocation_unit": "episode",
+      "episode_disjoint": true,
+      "episode_assignments_file": "episode_disjoint_episodes_v1.csv",
+      "question_assignments_file": "episode_disjoint_questions_v1.csv",
+      "episode_counts": {
+        "memory": 56,
+        "validation": 23,
+        "test": 146
+      },
+      "counts": {
+        "memory": {
+          "questions": 224,
+          "per_type": {
+            "belief": 74,
+            "social-goal": 74,
+            "goal-belief": 76
+          }
+        },
+        "validation": {
+          "questions": 92,
+          "per_type": {
+            "belief": 30,
+            "social-goal": 30,
+            "goal-belief": 32
+          }
+        },
+        "test": {
+          "questions": 584,
+          "per_type": {
+            "belief": 196,
+            "social-goal": 196,
+            "goal-belief": 192
+          }
+        }
+      }
+    }
+  },
+  "subsets": {
+    "muma-tom-repeat550-v1": {
+      "parent_split_id": "muma-tom-main-qsplit-v1/test",
+      "assignments_file": "repeated_run_subset_550_v1.csv",
+      "questions": 550,
+      "per_type": {
+        "belief": 184,
+        "social-goal": 183,
+        "goal-belief": 183
+      }
+    },
+    "muma-tom-human100-v1": {
+      "parent_split_id": "muma-tom-main-qsplit-v1/test",
+      "assignments_file": "human_reference_subset_100_v1.csv",
+      "questions": 100,
+      "per_type": {
+        "belief": 34,
+        "social-goal": 33,
+        "goal-belief": 33
+      }
+    }
+  },
+  "controlled_scenarios": {
+    "controlled-confidence-consistency-v1": {
+      "assignments_file": "confidence_consistency_scenarios_v1.csv",
+      "total_scenarios": 20,
+      "per_task": {
+        "online_goal_inference": 6,
+        "desire_inference": 7,
+        "belief_inference": 7
+      }
+    }
+  },
+  "subset_overlap_questions": 97,
+  "files": {
+    "main_question_split_v1.csv": {
+      "sha256": "47c6a0c737ca0f763e4bef06bd41ec2e78e746bd4554f90442cc53d3e8a93279"
+    },
+    "episode_disjoint_episodes_v1.csv": {
+      "sha256": "cb1b52af593ced893760e239b4fa2457b36e4af091e853b235ed3e177412ab5a"
+    },
+    "episode_disjoint_questions_v1.csv": {
+      "sha256": "99086ba34a8316d88b3f07a6eb2cedc006844dc92fcf09980fcd211efe3e8844"
+    },
+    "repeated_run_subset_550_v1.csv": {
+      "sha256": "5e7ccd4469b062427ff7aeb75306bb0d567b3c423157ad7705cf45593a4c1fe5"
+    },
+    "human_reference_subset_100_v1.csv": {
+      "sha256": "42003074605fce115944366609b5f07a68ce93af9891bc9a0bf5b2e8c8be4c59"
+    },
+    "confidence_consistency_scenarios_v1.csv": {
+      "sha256": "a97ba042cce7a73d218df4894b73553238c702b448c5ee1c0c9adfed05a80116"
+    }
+  }
+}

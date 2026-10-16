@@ -1,0 +1,59 @@
+{
+  "schema_version": "1.0",
+  "config_id": "muma-tom-human-reference-v1",
+  "protocol_id": "muma-tom-main-qsplit-v1",
+  "evaluation_split_id": "muma-tom-main-qsplit-v1/test",
+  "subset_id": "muma-tom-human100-v1",
+  "subset_assignments": "../splits/human_reference_subset_100_v1.csv",
+  "questions": 100,
+  "participants": 6,
+  "run_id": "human-reference-v1",
+  "presentation_order": "randomized_per_participant",
+  "participant_order_seeds": [26371049, 77532061, 42168937, 90614253, 14857309, 65480127],
+  "abstention_encoding": "ABSTAIN",
+  "response_labels": ["A", "B", "C", "D", "E", "ABSTAIN"],
+  "reference_accuracy": {
+    "participant_formula": "correct_answered / answered",
+    "answered_formula": "assigned_questions - abstained",
+    "group_formula": "unweighted arithmetic mean of the six participant accuracies",
+    "participant_weight": "1/6",
+    "zero_answered_policy": "invalid_input"
+  },
+  "agreement": {
+    "statistic": "Fleiss_kappa",
+    "missing_response_policy": "complete_case_questions_only",
+    "complete_case_definition": "all six participants supplied A-E; any question containing ABSTAIN is excluded from kappa only",
+    "rating_categories": ["A", "B", "C", "D", "E"],
+    "minimum_complete_case_questions": 2,
+    "confidence_interval": {
+      "method": "question_level_nonparametric_percentile_bootstrap",
+      "resamples": 10000,
+      "seed": 84726111,
+      "confidence_level": 0.95,
+      "quantile_definition": "linear interpolation at (n-1)*p",
+      "degenerate_replicate_policy": "discard_and_redraw_until_resamples_valid_or_100_times_resamples_attempts"
+    }
+  },
+  "response_csv_schema": {
+    "unique_key": ["participant_id", "episode_id", "question_id"],
+    "required_fields": {
+      "participant_id": "P01 through P06 pseudonym",
+      "presentation_order": "integer 1 through 100 unique within participant",
+      "episode_id": "dataset episode identifier",
+      "question_id": "question identifier within episode",
+      "response": "A|B|C|D|E|ABSTAIN",
+      "ground_truth": "A|B|C|D|E"
+    },
+    "required_rows": 600,
+    "question_membership": "exactly the 100 keys in subset_assignments for every participant"
+  },
+  "participant_summary_csv_schema": {
+    "required_fields": ["participant_id", "assigned", "answered", "abstained", "correct_answered", "accuracy"],
+    "required_rows": 6
+  },
+  "majority_vote_use": "agreement_label_only",
+  "responses_csv": "outputs/human_reference/responses.csv",
+  "participant_summary_csv": "outputs/human_reference/participant_summary.csv",
+  "aggregation_entrypoint": "../scripts/compute_human_reference.py",
+  "summary_json": "outputs/human_reference/accuracy_and_agreement.json"
+}

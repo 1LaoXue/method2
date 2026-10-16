@@ -1,0 +1,13 @@
+Reformat the supplied model output without changing its substantive choice.
+
+Original output:
+{{original_output}}
+
+Required output schema:
+{{required_schema}}
+
+Rules:
+1. Preserve a clearly stated answer or score when one exists.
+2. Do not invent an answer when the original output contains no recoverable choice.
+3. Return only the required schema with no explanation.
+4. If no value can be recovered, return the schema's INVALID value.

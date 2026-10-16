@@ -1,0 +1,20 @@
+Multimodal background:
+{{background_info}}
+
+Question:
+{{question}}
+
+Options:
+{{options}}
+
+Logical-agent analysis:
+{{logical_analysis}}
+
+Innovative-agent analysis:
+{{innovative_analysis}}
+
+Previous synthesized answers:
+{{previous_synthesized_answers}}
+
+Return the integrated analysis and exactly one final line:
+Final Answer: [A-E]

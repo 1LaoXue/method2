@@ -1,0 +1,28 @@
+{
+  "schema_version": "1.0",
+  "config_id": "muma-tom-computational-cost-v1",
+  "common": "common.json",
+  "protocol_id": "muma-tom-main-qsplit-v1",
+  "evaluation_split_id": "muma-tom-main-qsplit-v1/test",
+  "questions": 585,
+  "run_id": "computational-cost-run-01",
+  "run_seed": 35719823,
+  "core_reasoner": "gpt-3.5-turbo-0125",
+  "visual_parser": "gemini-2.5-pro-preview-05-06",
+  "exclude_visual_parsing_cost": true,
+  "relative_cost_reference": "always_debate_8_rounds",
+  "strategies": [
+    {"strategy_id": "single_pass_reasoning", "debate_trigger": false},
+    {"strategy_id": "always_debate_3_rounds", "debate_trigger": "always", "rounds": 3, "early_termination": false},
+    {"strategy_id": "always_debate_5_rounds", "debate_trigger": "always", "rounds": 5, "early_termination": false},
+    {"strategy_id": "always_debate_8_rounds", "debate_trigger": "always", "rounds": 8, "early_termination": false},
+    {"strategy_id": "fixed_8_round_debate", "debate_trigger": "adaptive", "rounds": 8, "early_termination": false},
+    {"strategy_id": "early_termination_only", "debate_trigger": "always", "maximum_rounds": 8, "early_termination": true},
+    {"strategy_id": "full_framework", "debate_trigger": "adaptive", "round_control": "adaptive", "early_termination": true}
+  ],
+  "accuracy_metric_id": "difficulty_balanced_accuracy",
+  "difficulty_reference_id": "muma-tom-gpt35-main-test-difficulty-v1",
+  "reported_metrics": ["difficulty_balanced_accuracy", "micro_accuracy", "average_reasoning_tokens", "average_api_calls", "relative_api_cost"],
+  "output_jsonl": "outputs/computational_cost/all_strategies.jsonl",
+  "summary_json": "outputs/computational_cost/table_summary.json"
+}

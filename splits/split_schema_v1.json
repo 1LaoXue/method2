@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0",
+  "composite_question_key": ["episode_id", "question_id"],
+  "question_assignment_fields": {
+    "provenance": "string",
+    "protocol_id": "string",
+    "split_id": "protocol_id/{memory|validation|test}",
+    "episode_id": "dataset episode identifier",
+    "question_id": "question identifier within episode",
+    "question_type": "belief|social-goal|goal-belief",
+    "split": "memory|validation|test"
+  },
+  "episode_assignment_fields": {
+    "provenance": "string",
+    "protocol_id": "string",
+    "split_id": "protocol_id/{memory|validation|test}",
+    "episode_id": "dataset episode identifier",
+    "split": "memory|validation|test",
+    "question_count": "integer"
+  },
+  "subset_fields": {
+    "provenance": "string",
+    "subset_id": "string",
+    "parent_split_id": "string",
+    "selection_order": "one-based integer",
+    "episode_id": "dataset episode identifier",
+    "question_id": "question identifier within episode",
+    "question_type": "belief|social-goal|goal-belief"
+  },
+  "confidence_scenario_fields": {
+    "provenance": "string",
+    "protocol_id": "controlled-confidence-consistency-v1",
+    "scenario_id": "fixed release identifier",
+    "task": "online_goal_inference|desire_inference|belief_inference",
+    "scenario_type_index": "one-based integer",
+    "selection_order": "one-based integer",
+    "selection_rule": "all_scenarios|one_representative_per_type",
+    "mapping_status": "RESOLVED|UNRESOLVED_SOURCE_MAPPING",
+    "source_publication": "bibliographic key or stable publication identifier",
+    "source_task": "source task name",
+    "source_scenario_id": "identifier from the source materials",
+    "source_stimulus_path_or_url": "release-relative path or stable public URL",
+    "source_type_id": "verifiable source type/data key; NOT_APPLICABLE when the source task has no separate type identifier",
+    "observation_sequence_id": "stable identifier joining all sequential observations"
+  }
+}

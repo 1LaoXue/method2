@@ -1,0 +1,22 @@
+{
+  "schema_version": "1.0",
+  "config_id": "muma-tom-repeated-runs-v1",
+  "common": "common.json",
+  "protocol_id": "muma-tom-main-qsplit-v1",
+  "evaluation_split_id": "muma-tom-main-qsplit-v1/test",
+  "subset_id": "muma-tom-repeat550-v1",
+  "subset_assignments": "../splits/repeated_run_subset_550_v1.csv",
+  "questions_per_run": 550,
+  "runs": 5,
+  "run_seeds": [35719823, 68245109, 11472863, 94026571, 52680347],
+  "run_ids": ["repeat-run-01", "repeat-run-02", "repeat-run-03", "repeat-run-04", "repeat-run-05"],
+  "core_reasoner": "gpt-3.5-turbo-0125",
+  "visual_parser": "gemini-2.5-pro-preview-05-06",
+  "methods": ["single_pass_reasoning", "Shi_et_al_baseline", "debate_without_memory", "full_framework"],
+  "same_ordered_question_ids_for_all_methods_and_runs": true,
+  "memory_mode": "frozen_memory_offline",
+  "per_run_accuracy_metric_id": "micro_accuracy",
+  "run_summary": ["mean_accuracy", "sample_standard_deviation_accuracy"],
+  "output_pattern": "outputs/repeated_runs/{method_id}/{run_id}.jsonl",
+  "summary_json": "outputs/repeated_runs/five_run_summary.json"
+}

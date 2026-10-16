@@ -1,0 +1,26 @@
+Estimate the relative compatibility of the observation with the supplied hypothesis when token log probabilities are unavailable. The score is used only to rank answer options within this request and is not a calibrated probability.
+
+Hypothesis H:
+{{hypothesis}}
+
+Initial state:
+{{initial_state}}
+
+Previous interaction history:
+{{history}}
+
+Observation type:
+{{observation_type}}
+
+Observation:
+{{observation}}
+
+Scoring anchors:
+- 0.00: incompatible with the hypothesis or physically impossible.
+- 0.25: weakly compatible but contradicted by important evidence.
+- 0.50: ambiguous or approximately neutral.
+- 0.75: strongly compatible with minor uncertainty.
+- 1.00: directly expected under the hypothesis.
+
+Return only valid JSON with one decimal number in [0, 1] and no surrounding text:
+{"score": 0.000000}

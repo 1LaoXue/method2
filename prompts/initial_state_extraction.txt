@@ -1,0 +1,7 @@
+You are a scene analyst. Infer the environmental state before any listed action occurred. Focus on object placements implied by actions such as grab, put, open, and close. Do not infer facts unsupported by the action sequence.
+
+Actions:
+{{actions}}
+
+Return only statements in this form, one per line:
+There is a [object] [location].

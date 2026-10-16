@@ -1,0 +1,11 @@
+Summarize the retrieved-memory statistics for debate guidance without changing any numeric value.
+
+Retrieved count: {{N_ret}}
+Debate rate: {{R_debate}}
+Debate success rate: {{R_succ}}
+Correction rate: {{R_correct}}
+Harm rate: {{R_harm}}
+Quick convergence rate: {{R_quick}}
+Mean similarity: {{mean_similarity}}
+
+Return exactly two sentences. The first sentence states whether prior debate was generally beneficial, harmful, or inconclusive. The second states whether the retrieved evidence is sufficient and similar enough to guide the current case.
